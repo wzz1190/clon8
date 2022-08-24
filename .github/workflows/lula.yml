@@ -2,6 +2,7 @@ name: picacgPunch
 
 on:
 
+  workflow_dispatch:
   push:
     branches: [ main ]    
     paths:
@@ -11,9 +12,9 @@ on:
   
     
     
-  schedule:
+  #schedule:
     #- cron: '*/7 * * * *'
-    workflow_dispatch:
+
 
 jobs:
 
