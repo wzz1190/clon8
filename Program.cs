@@ -12,16 +12,21 @@ namespace ConsoleApp8
     {
         static void Main(string[] args)
         {
-            Dictionary<string, string> dic = postdouyin();
-            using (StreamWriter sw = new StreamWriter("README.md", true))
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic = filedouyin();
+            dic = postdouyin();
+            using (StreamWriter sw = new StreamWriter(pua, true))
             {
                 foreach (var item in dic)
                 {
-                    sw.WriteLine(item.Key+"|"+item.Value+"\r\n");
+                    sw.WriteLine(item.Key + "|" + item.Value + "\r\n");
                 }
-                
+
             }
         }
+
+        public static string pua = @"acc/" + DateTime.Now.ToString("yyyyMMdd") + ".md";
+
 
         public static Dictionary<string, string> postdouyin()
         {
@@ -31,24 +36,57 @@ namespace ConsoleApp8
             hi.URL = "https://aweme.snssdk.com/aweme/v1/hot/search/list/?detail_list=1";
             string html = hh.GetHtml(hi);
             SufeiNet_Test rb = JsonConvert.DeserializeObject<SufeiNet_Test>(html);
-            if (rb.Data!=null)
+            if (rb.Data != null)
             {
-                if (rb.Data.WordList!=null&& rb.Data.WordList.Count>0)
+                if (rb.Data.WordList != null && rb.Data.WordList.Count > 0)
                 {
                     foreach (var item in rb.Data.WordList)
                     {
-                        if (item.HotValue!=null&& item.Word!=null)
+                        if (item.HotValue != null && item.Word != null)
                         {
                             if (!dic.ContainsKey(item.Word))
                             {
                                 dic.Add(item.Word, item.HotValue);
-                                Console.WriteLine("关键字："+ item.Word+"  ----  热度："+ item.HotValue);
+                                Console.WriteLine("关键字：" + item.Word + "  ----  热度：" + item.HotValue);
                             }
                         }
                     }
                 }
             }
             return dic;
+        }
+
+        public static void ce()
+        {
+            Console.WriteLine(DateTime.Now.ToString("yyyyMMdd"));
+
+        }
+
+        public static Dictionary<string, string> filedouyin()
+        {
+            Dictionary<string, string> dicc = new Dictionary<string, string>();
+            if (!Directory.Exists("acc"))
+            {
+                Directory.CreateDirectory("acc");
+            }
+            if (!File.Exists(pua))
+            {
+                FileStream fs1 = new FileStream(pua, FileMode.Create, FileAccess.Write);
+            }
+            else
+            {
+                using (StreamReader sr = new StreamReader(pua))
+                {
+                    string line = sr.ReadLine();
+                    while (line != null)
+                    {
+                        string[] a = line.Split('|');
+                        dicc.Add(a[0], a[1]);
+                        line = sr.ReadLine();
+                    }
+                }
+            }
+            return dicc;
         }
     }
 }
