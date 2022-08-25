@@ -14,7 +14,7 @@ namespace ConsoleApp8
         {
             Dictionary<string, string> dic = new Dictionary<string, string>();
             dic = filedouyin();
-            dic = postdouyin();
+            dic = postdouyin(dic);
             using (StreamWriter sw = new StreamWriter(pua, true))
             {
                 foreach (var item in dic)
@@ -28,9 +28,8 @@ namespace ConsoleApp8
         public static string pua = @"acc/" + DateTime.Now.ToString("yyyyMMdd") + ".md";
 
 
-        public static Dictionary<string, string> postdouyin()
+        public static Dictionary<string, string> postdouyin(Dictionary<string, string> dicd)
         {
-            Dictionary<string, string> dic = new Dictionary<string, string>();
             HttpHelper hh = new HttpHelper();
             HttpItem hi = new HttpItem();
             hi.URL = "https://aweme.snssdk.com/aweme/v1/hot/search/list/?detail_list=1";
@@ -44,16 +43,20 @@ namespace ConsoleApp8
                     {
                         if (item.HotValue != null && item.Word != null)
                         {
-                            if (!dic.ContainsKey(item.Word))
+                            if (!dicd.ContainsKey(item.Word))
                             {
-                                dic.Add(item.Word, item.HotValue);
+                                dicd.Add(item.Word, item.HotValue);
                                 Console.WriteLine("关键字：" + item.Word + "  ----  热度：" + item.HotValue);
+                            }
+                            else
+                            {
+                                dicd[item.Word] = item.HotValue;
                             }
                         }
                     }
                 }
             }
-            return dic;
+            return dicd;
         }
 
         public static void ce()
@@ -80,10 +83,13 @@ namespace ConsoleApp8
                     string line = sr.ReadLine();
                     while (line != null)
                     {
-                        string[] a = line.Split('|');
-                        if (!dicc.ContainsKey(a[0]))
+                        if (line != "")
                         {
-                            dicc.Add(a[0], a[1]);
+                            string[] a = line.Split('|');
+                            if (!dicc.ContainsKey(a[0]))
+                            {
+                                dicc.Add(a[0], a[1]);
+                            }
                         }
                         line = sr.ReadLine();
                     }
