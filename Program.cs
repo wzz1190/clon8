@@ -16,7 +16,7 @@ namespace ConsoleApp8
             dic = filedouyin();
             dic = postdouyin(dic);
             paixu(dic);
-            using (StreamWriter sw = new StreamWriter(pua, true))
+            using (StreamWriter sw = new StreamWriter(pua, false))
             {
                 foreach (var item in dic)
                 {
