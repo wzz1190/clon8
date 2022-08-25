@@ -81,7 +81,10 @@ namespace ConsoleApp8
                     while (line != null)
                     {
                         string[] a = line.Split('|');
-                        dicc.Add(a[0], a[1]);
+                        if (!dicc.ContainsKey(a[0]))
+                        {
+                            dicc.Add(a[0], a[1]);
+                        }
                         line = sr.ReadLine();
                     }
                 }
