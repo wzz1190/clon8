@@ -14,8 +14,8 @@ namespace ConsoleApp8
         static void Main(string[] args)
         {
 
-            var url = "https://pics4.baidu.com/feed/1b4c510fd9f9d72a2db265873d5df13e369bbbdc.jpeg?token=13e6989ac373e97c477f4e48e9eb82e7";
-            var save = @"11.jpg";
+            var url = "http://v26-web.douyinvod.com/f2d20617bd7701d267a80c7253caee8d/6307312d/video/tos/cn/tos-cn-ve-15c001-alinc2/5735e3e23bd143968f261c71147e7c5b/?a=6383&ch=50&cr=0&dr=0&lr=all&cd=0%7C0%7C0%7C0&cv=1&br=755&bt=755&cs=0&ds=4&ft=t2zLrtjjM95MxrKqBZmCTeK_ScoAps1N2CvrKx~F9~to0&mime_type=video_mp4&qs=0&rc=NjppZDc3aDRnOWRkaTk5ZEBpM3FxamQ6Znc0ZjMzNGkzM0A0MmIxM2A2XmAxM2BeLWFgYSMvbGJscjRnaC5gLS1kLS9zcw%3D%3D&l=2022082515215601013516823204011DBD";
+            var save = @"11.mp4";
             using (var web = new WebClient())
             {
                 web.DownloadFile(url, save);
