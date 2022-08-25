@@ -13,20 +13,18 @@ namespace ConsoleApp8
     {
         static void Main(string[] args)
         {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic = filedouyin();
+            dic = postdouyin(dic);
+            paixu(dic);
+            using (StreamWriter sw = new StreamWriter(pua, false))
+            {
+                foreach (var item in dic)
+                {
+                    sw.WriteLine(item.Key + "|" + item.Value + "\r\n");
+                }
 
-            hh();
-            //Dictionary<string, string> dic = new Dictionary<string, string>();
-            //dic = filedouyin();
-            //dic = postdouyin(dic);
-            //paixu(dic);
-            //using (StreamWriter sw = new StreamWriter(pua, false))
-            //{
-            //    foreach (var item in dic)
-            //    {
-            //        sw.WriteLine(item.Key + "|" + item.Value + "\r\n");
-            //    }
-
-            //}
+            }
         }
 
         public static string pua = @"acc/" + DateTime.Now.ToString("yyyyMMdd") + ".md";
@@ -128,18 +126,6 @@ namespace ConsoleApp8
                 web.DownloadFile(url, save);
             }
 
-        }
-
-        public static void hh()
-        {
-            HttpHelper hh = new HttpHelper();
-            HttpItem hi = new HttpItem();
-            hi.URL = "https://www.youtube.com/";
-            hi.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9";
-            hi.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.0.0 Safari/537.36";
-            hi.Allowautoredirect = true;
-            string html = hh.GetHtml(hi);
-            Console.WriteLine(html);
         }
     }
 }
