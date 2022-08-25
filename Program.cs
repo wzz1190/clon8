@@ -14,13 +14,7 @@ namespace ConsoleApp8
         static void Main(string[] args)
         {
 
-            var url = "http://v26-web.douyinvod.com/f2d20617bd7701d267a80c7253caee8d/6307312d/video/tos/cn/tos-cn-ve-15c001-alinc2/5735e3e23bd143968f261c71147e7c5b/?a=6383&ch=50&cr=0&dr=0&lr=all&cd=0%7C0%7C0%7C0&cv=1&br=755&bt=755&cs=0&ds=4&ft=t2zLrtjjM95MxrKqBZmCTeK_ScoAps1N2CvrKx~F9~to0&mime_type=video_mp4&qs=0&rc=NjppZDc3aDRnOWRkaTk5ZEBpM3FxamQ6Znc0ZjMzNGkzM0A0MmIxM2A2XmAxM2BeLWFgYSMvbGJscjRnaC5gLS1kLS9zcw%3D%3D&l=2022082515215601013516823204011DBD";
-            var save = @"11.mp4";
-            using (var web = new WebClient())
-            {
-                web.DownloadFile(url, save);
-            }
-
+            hh();
             //Dictionary<string, string> dic = new Dictionary<string, string>();
             //dic = filedouyin();
             //dic = postdouyin(dic);
@@ -123,6 +117,26 @@ namespace ConsoleApp8
                 }
             }
             return dicc;
+        }
+
+        public static void down()
+        {
+            var url = "http://v26-web.douyinvod.com/f2d20617bd7701d267a80c7253caee8d/6307312d/video/tos/cn/tos-cn-ve-15c001-alinc2/5735e3e23bd143968f261c71147e7c5b/?a=6383&ch=50&cr=0&dr=0&lr=all&cd=0%7C0%7C0%7C0&cv=1&br=755&bt=755&cs=0&ds=4&ft=t2zLrtjjM95MxrKqBZmCTeK_ScoAps1N2CvrKx~F9~to0&mime_type=video_mp4&qs=0&rc=NjppZDc3aDRnOWRkaTk5ZEBpM3FxamQ6Znc0ZjMzNGkzM0A0MmIxM2A2XmAxM2BeLWFgYSMvbGJscjRnaC5gLS1kLS9zcw%3D%3D&l=2022082515215601013516823204011DBD";
+            var save = @"11.mp4";
+            using (var web = new WebClient())
+            {
+                web.DownloadFile(url, save);
+            }
+
+        }
+
+        public static void hh()
+        {
+            HttpHelper hh = new HttpHelper();
+            HttpItem hi = new HttpItem();
+            hi.URL = "https://https://www.youtube.com/";
+            string html = hh.GetHtml(hi);
+            Console.WriteLine(html);
         }
     }
 }
