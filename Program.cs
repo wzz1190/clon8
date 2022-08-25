@@ -5,6 +5,7 @@ using SufeiNet;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
 
 namespace ConsoleApp8
 {
@@ -12,18 +13,26 @@ namespace ConsoleApp8
     {
         static void Main(string[] args)
         {
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-            dic = filedouyin();
-            dic = postdouyin(dic);
-            paixu(dic);
-            using (StreamWriter sw = new StreamWriter(pua, false))
-            {
-                foreach (var item in dic)
-                {
-                    sw.WriteLine(item.Key + "|" + item.Value + "\r\n");
-                }
 
+            var url = "https://pics4.baidu.com/feed/1b4c510fd9f9d72a2db265873d5df13e369bbbdc.jpeg?token=13e6989ac373e97c477f4e48e9eb82e7";
+            var save = @"11.jpg";
+            using (var web = new WebClient())
+            {
+                web.DownloadFile(url, save);
             }
+
+            //Dictionary<string, string> dic = new Dictionary<string, string>();
+            //dic = filedouyin();
+            //dic = postdouyin(dic);
+            //paixu(dic);
+            //using (StreamWriter sw = new StreamWriter(pua, false))
+            //{
+            //    foreach (var item in dic)
+            //    {
+            //        sw.WriteLine(item.Key + "|" + item.Value + "\r\n");
+            //    }
+
+            //}
         }
 
         public static string pua = @"acc/" + DateTime.Now.ToString("yyyyMMdd") + ".md";
