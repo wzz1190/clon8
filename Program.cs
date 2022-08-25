@@ -15,6 +15,7 @@ namespace ConsoleApp8
             Dictionary<string, string> dic = new Dictionary<string, string>();
             dic = filedouyin();
             dic = postdouyin(dic);
+            paixu(dic);
             using (StreamWriter sw = new StreamWriter(pua, true))
             {
                 foreach (var item in dic)
@@ -59,10 +60,27 @@ namespace ConsoleApp8
             return dicd;
         }
 
-        public static void ce()
+        public static void paixu(Dictionary<string, string> d1)
         {
-            Console.WriteLine(DateTime.Now.ToString("yyyyMMdd"));
 
+            Dictionary<string, int> d2 = new Dictionary<string, int>();
+            foreach (var item in d1)
+            {
+                d2.Add(item.Key, int.Parse(item.Value));
+            }
+
+            if (d2.Count > 0)
+            {
+                List<KeyValuePair<string, int>> lst = new List<KeyValuePair<string, int>>(d2);
+                lst.Sort(delegate (KeyValuePair<string, int> s1, KeyValuePair<string, int> s2)
+                {
+                    return s2.Value.CompareTo(s1.Value);
+                });
+                d1.Clear();
+                foreach (KeyValuePair<string, int> kvp in lst)
+                    d1.Add(kvp.Key, kvp.Value.ToString());
+
+            }
         }
 
         public static Dictionary<string, string> filedouyin()
