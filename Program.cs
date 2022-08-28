@@ -13,11 +13,20 @@ namespace ConsoleApp8
 {
     class Program
     {
+
+
+        public static urlx uu = new urlx();
+
         static void Main(string[] args)
         {
+            string[] aa = args[0].Split('|');
+            uu.url1 = aa[0];
+            uu.url2 = aa[1];
+            uu.url3 = aa[2];
+
             List<Test> ls = new List<Test>();
             filedouyin(ls);
-            postdouyin(ls);
+            postdouyin(ls, uu.url1);
             ls = paixu(ls);
             go(ls);
             using (StreamWriter sw = new StreamWriter(pua, false))
@@ -33,11 +42,11 @@ namespace ConsoleApp8
         public static string pua = @"acc/" + DateTime.Now.ToString("yyyyMMdd") + ".md";
 
 
-        public static void postdouyin(List<Test> ls)
+        public static void postdouyin(List<Test> ls,string url)
         {
             HttpHelper hh = new HttpHelper();
             HttpItem hi = new HttpItem();
-            hi.URL = "https://aweme.snssdk.com/aweme/v1/hot/search/list/?detail_list=1";
+            hi.URL = url;
             string html = hh.GetHtml(hi);
             SufeiNet_Test rb = JsonConvert.DeserializeObject<SufeiNet_Test>(html);
             if (rb.Data != null)
@@ -107,12 +116,12 @@ namespace ConsoleApp8
             }
         }
 
-        public static string post(string wordname)
+        public static string post(string wordname, string url)
         {
             Console.WriteLine("获取链接~");
             HttpHelper hh = new HttpHelper();
             HttpItem hi = new HttpItem();
-            hi.URL = "https://aweme.snssdk.com/aweme/v1/hot/search/video/list/?hotword=" + wordname;
+            hi.URL = url + wordname;
             hi.Allowautoredirect = true;
             hi.Accept = "application/json; charset=utf-8";
             hi.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36";
@@ -221,7 +230,7 @@ namespace ConsoleApp8
 
         }
 
-        public static void post2(string name,string url)
+        public static void post2(string name,string url,string uurl)
         {
             Console.WriteLine("ye指令");
             HttpHelper hh = new HttpHelper();
@@ -245,7 +254,7 @@ namespace ConsoleApp8
                 if (ls[i].ID == "")
                 {
                     Console.WriteLine("进入");
-                    string posttxt = post(ls[i].work);
+                    string posttxt = post(ls[i].work,uu.url2);
                     if (posttxt == "string error")
                     {
                         continue;
@@ -254,7 +263,7 @@ namespace ConsoleApp8
                     Console.WriteLine("post");
                     if (tc != null)
                     {
-                        post2(tc.name, tc.url);
+                        post2(tc.name, tc.url,uu.url3);
                         ls[i].ID = tc.ID;
                         ls[i].name = tc.name;
                         break;
@@ -290,6 +299,13 @@ namespace ConsoleApp8
 
         public string name { get; set; }
 
+    }
+
+    public class urlx
+    {
+        public string url1 { get; set; }
+        public string url2 { get; set; }
+        public string url3 { get; set; }
     }
 
 
