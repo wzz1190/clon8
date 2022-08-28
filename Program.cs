@@ -19,11 +19,33 @@ namespace ConsoleApp8
 
         static void Main(string[] args)
         {
-            string[] aa = args[0].Split('|');
-            uu.url1 = aa[0];
-            uu.url2 = aa[1];
-            uu.url3 = aa[2];
+            if (args.Length==0)
+            {
+                log("无密码");
+                return;
+            }
+            else 
+            {
+                string[] aa = args[0].Split('|');
+                if (aa.Length==3)
+                {
+                    uu.url1 = aa[0];
+                    uu.url2 = aa[1];
+                    uu.url3 = aa[2];
+                    log("正确开始运行");
+                }
+                else
+                {
+                    log("密码错误");
+                    return;
+                }
+            }
+            douyin();
+        }
 
+
+        public static void douyin()
+        {
             List<Test> ls = new List<Test>();
             filedouyin(ls);
             postdouyin(ls, uu.url1);
@@ -37,13 +59,19 @@ namespace ConsoleApp8
                 }
 
             }
+
         }
 
         public static string pua = @"acc/" + DateTime.Now.ToString("yyyyMMdd") + ".md";
 
+        public static void log(string text)
+        {
+            Console.WriteLine(text);
+        }
 
         public static void postdouyin(List<Test> ls,string url)
         {
+            log("获取热点");
             HttpHelper hh = new HttpHelper();
             HttpItem hi = new HttpItem();
             hi.URL = url;
@@ -60,7 +88,7 @@ namespace ConsoleApp8
                             if (!ls.Exists(t => t.work.Contains(item.Word)))
                             {
                                 ls.Add( new Test() { work= item.Word,hot= item.HotValue });
-                                
+                                log("获取新热点：  "+ item.Word+"------"+"热度："+ item.HotValue);
                             }
                             else
                             {
@@ -81,12 +109,14 @@ namespace ConsoleApp8
 
         public static List<Test> paixu(List<Test> ls)
         {
+            log("热度排序成功！");
             ls = ls.OrderByDescending(o => o.hot.Length).ThenByDescending(o => o.hot).ToList();
             return ls;
         }
 
         public static void filedouyin(List<Test> ls)
         {
+            log("加载信息");
             if (!Directory.Exists("acc"))
             {
                 Directory.CreateDirectory("acc");
@@ -246,26 +276,26 @@ namespace ConsoleApp8
 
         public static void go(List<Test> ls)
         {
-            
-            int s = 0;
-            Console.WriteLine(ls.Count);
+            log("当前热点 "+ ls.Count+" 条记录");
             for (int i = 0; i < ls.Count; i++)
             {
                 if (ls[i].ID == "")
                 {
-                    Console.WriteLine("进入");
+                    log("获取URL： " + ls[i].ID);
                     string posttxt = post(ls[i].work,uu.url2);
                     if (posttxt == "string error")
                     {
+                        log("post失败");
                         continue;
                     }
                     Ggs tc = josnruku(posttxt, ls[i].work);
-                    Console.WriteLine("post");
                     if (tc != null)
                     {
+                        log("获取URL 成功");
                         post2(tc.name, tc.url,uu.url3);
                         ls[i].ID = tc.ID;
                         ls[i].name = tc.name;
+                        log("TUB成功！");
                         break;
                     }
                     else
