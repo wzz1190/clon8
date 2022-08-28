@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace ConsoleApp8
@@ -17,17 +18,20 @@ namespace ConsoleApp8
 
         public static urlx uu = new urlx();
 
+        public static List<string> lstxt = new List<string>();
+        public static List<string> lswork = new List<string>();
+
         static void Main(string[] args)
         {
-            if (args.Length==0)
+            if (args.Length == 0)
             {
                 log("无密码");
                 return;
             }
-            else 
+            else
             {
                 string[] aa = args[0].Split('|');
-                if (aa.Length==3)
+                if (aa.Length == 3)
                 {
                     uu.url1 = aa[0];
                     uu.url2 = aa[1];
@@ -47,7 +51,8 @@ namespace ConsoleApp8
         public static void douyin()
         {
             List<Test> ls = new List<Test>();
-            filedouyin(ls);
+
+            filedouyin(ls, lstxt, lswork);
             postdouyin(ls, uu.url1);
             ls = paixu(ls);
             go(ls);
@@ -55,7 +60,7 @@ namespace ConsoleApp8
             {
                 foreach (var item in ls)
                 {
-                    sw.WriteLine(item.work + "|" + item.hot + "|" + item.ID + "|" + item.name + "\r\n");
+                    sw.WriteLine(item.work + "|" + item.hot + "|" + item.ID + "\n");
                 }
 
             }
@@ -63,6 +68,10 @@ namespace ConsoleApp8
         }
 
         public static string pua = @"acc/" + DateTime.Now.ToString("yyyyMMdd") + ".md";
+
+        public static string txt = @"acc/txt.md";
+
+        public static string work = @"acc/work.md";
 
         public static void log(string text)
         {
@@ -114,7 +123,7 @@ namespace ConsoleApp8
             return ls;
         }
 
-        public static void filedouyin(List<Test> ls)
+        public static void filedouyin(List<Test> ls, List<string> lstxt, List<string> lswork)
         {
             log("加载信息");
             if (!Directory.Exists("acc"))
@@ -137,8 +146,32 @@ namespace ConsoleApp8
                             string[] a = line.Split('|');
                             if (!ls.Exists(t => t.work.Contains(a[0])))
                             {
-                                ls.Add(new Test() { work = a[0], hot = a[1],ID= a[2],name=a[3] });
+                                ls.Add(new Test() { work = a[0], hot = a[1],ID= a[2] });
                             }
+                        }
+                        line = sr.ReadLine();
+                    }
+                }
+                using (StreamReader sr = new StreamReader(txt))
+                {
+                    string line = sr.ReadLine();
+                    while (line != null)
+                    {
+                        if (line != "")
+                        {
+                            lstxt.Add(line);
+                        }
+                        line = sr.ReadLine();
+                    }
+                }
+                using (StreamReader sr = new StreamReader(work, Encoding.Default))
+                {
+                    string line = sr.ReadLine();
+                    while (line != null)
+                    {
+                        if (line != "")
+                        {
+                            lswork.Add(line);
                         }
                         line = sr.ReadLine();
                     }
@@ -148,7 +181,7 @@ namespace ConsoleApp8
 
         public static string post(string wordname, string url)
         {
-            Console.WriteLine("获取链接~");
+            log("获取链接~");
             HttpHelper hh = new HttpHelper();
             HttpItem hi = new HttpItem();
             hi.URL = url + wordname;
@@ -279,7 +312,7 @@ namespace ConsoleApp8
             log("当前热点 "+ ls.Count+" 条记录");
             for (int i = 0; i < ls.Count; i++)
             {
-                if (ls[i].ID == "")
+                if (ls[i].ID == ""|| ls[i].ID ==null)
                 {
                     log("获取URL： " + ls[i].ID);
                     string posttxt = post(ls[i].work,uu.url2);
@@ -291,20 +324,57 @@ namespace ConsoleApp8
                     Ggs tc = josnruku(posttxt, ls[i].work);
                     if (tc != null)
                     {
-                        log("获取URL 成功");
-                        post2(tc.name, tc.url,uu.url3);
-                        ls[i].ID = tc.ID;
-                        ls[i].name = tc.name;
-                        log("TUB成功！");
-                        break;
+                       
+                        if (pan(tc.ID))
+                        {
+                            log("获取URL 成功");
+                            post2(tc.name, tc.url, uu.url3);
+                            ls[i].ID = "1";
+                            xieid(tc.ID);
+                            log("TUB成功！");
+                            break;
+                        }
+                        else
+                        {
+                            log("ID已发布");
+                        }
+
                     }
                     else
                     {
                         ls[i].ID = "0";
-                        ls[i].name = "无视频";
                     }
                 }
+                else
+                {
+                    log("ID不合法 抛弃");
+                }
             }       
+        }
+
+        public static bool pan(string xx)
+        {
+            if (lstxt.Contains(xx))
+            {
+                return false;
+            }
+            foreach (var item in lswork)
+            {
+                if (xx.Contains(item))
+                {
+                    return false;
+                }
+            }
+            return true;
+
+        }
+
+        public static void xieid(string idd)
+        {
+            using (StreamWriter sw = new StreamWriter(txt, true))
+            {
+                sw.WriteLine(idd + "\n");
+            }
         }
     }
     public class Test
@@ -317,7 +387,6 @@ namespace ConsoleApp8
 
         public string ID { get; set; }
 
-        public string name { get; set; }
 
     }
     public class Ggs
