@@ -239,16 +239,19 @@ namespace ConsoleApp8
         {
             
             int s = 0;
+            Console.WriteLine(ls.Count);
             for (int i = 0; i < ls.Count; i++)
             {
                 if (ls[i].ID == "")
                 {
+                    Console.WriteLine("进入");
                     string posttxt = post(ls[i].work);
                     if (posttxt == "string error")
                     {
                         continue;
                     }
                     Ggs tc = josnruku(posttxt, ls[i].work);
+                    Console.WriteLine("post");
                     if (tc != null)
                     {
                         post2(tc.name, tc.url);
