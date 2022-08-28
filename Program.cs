@@ -24,7 +24,7 @@ namespace ConsoleApp8
             {
                 foreach (var item in ls)
                 {
-                    sw.WriteLine(item.work + "|" + item.hot + "|" + item.ID + "|" + item.name + "\r");
+                    sw.WriteLine(item.work + "|" + item.hot + "|" + item.ID + "|" + item.name + "\r\n");
                 }
 
             }
