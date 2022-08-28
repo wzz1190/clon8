@@ -5,7 +5,9 @@ using SufeiNet;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
+using System.Text.RegularExpressions;
 
 namespace ConsoleApp8
 {
@@ -13,15 +15,16 @@ namespace ConsoleApp8
     {
         static void Main(string[] args)
         {
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-            dic = filedouyin();
-            dic = postdouyin(dic);
-            paixu(dic);
+            List<Test> ls = new List<Test>();
+            filedouyin(ls);
+            postdouyin(ls);
+            ls = paixu(ls);
+            go(ls);
             using (StreamWriter sw = new StreamWriter(pua, false))
             {
-                foreach (var item in dic)
+                foreach (var item in ls)
                 {
-                    sw.WriteLine(item.Key + "|" + item.Value + "\r\n");
+                    sw.WriteLine(item.work + "|" + item.hot + "|" + item.ID + "|" + item.name + "\r");
                 }
 
             }
@@ -30,7 +33,7 @@ namespace ConsoleApp8
         public static string pua = @"acc/" + DateTime.Now.ToString("yyyyMMdd") + ".md";
 
 
-        public static Dictionary<string, string> postdouyin(Dictionary<string, string> dicd)
+        public static void postdouyin(List<Test> ls)
         {
             HttpHelper hh = new HttpHelper();
             HttpItem hi = new HttpItem();
@@ -45,48 +48,36 @@ namespace ConsoleApp8
                     {
                         if (item.HotValue != null && item.Word != null)
                         {
-                            if (!dicd.ContainsKey(item.Word))
+                            if (!ls.Exists(t => t.work.Contains(item.Word)))
                             {
-                                dicd.Add(item.Word, item.HotValue);
-                                Console.WriteLine("关键字：" + item.Word + "  ----  热度：" + item.HotValue);
+                                ls.Add( new Test() { work= item.Word,hot= item.HotValue });
+                                
                             }
                             else
                             {
-                                dicd[item.Word] = item.HotValue;
+                                for (int i = 0; i < ls.Count; i++)
+                                {
+                                    if (ls[i].work== item.Word)
+                                    {
+                                        ls[i].hot = item.HotValue;
+                                        break;
+                                    }
+                                }
                             }
                         }
                     }
                 }
             }
-            return dicd;
         }
 
-        public static void paixu(Dictionary<string, string> d1)
+        public static List<Test> paixu(List<Test> ls)
         {
-
-            Dictionary<string, int> d2 = new Dictionary<string, int>();
-            foreach (var item in d1)
-            {
-                d2.Add(item.Key, int.Parse(item.Value));
-            }
-
-            if (d2.Count > 0)
-            {
-                List<KeyValuePair<string, int>> lst = new List<KeyValuePair<string, int>>(d2);
-                lst.Sort(delegate (KeyValuePair<string, int> s1, KeyValuePair<string, int> s2)
-                {
-                    return s2.Value.CompareTo(s1.Value);
-                });
-                d1.Clear();
-                foreach (KeyValuePair<string, int> kvp in lst)
-                    d1.Add(kvp.Key, kvp.Value.ToString());
-
-            }
+            ls = ls.OrderByDescending(o => o.hot.Length).ThenByDescending(o => o.hot).ToList();
+            return ls;
         }
 
-        public static Dictionary<string, string> filedouyin()
+        public static void filedouyin(List<Test> ls)
         {
-            Dictionary<string, string> dicc = new Dictionary<string, string>();
             if (!Directory.Exists("acc"))
             {
                 Directory.CreateDirectory("acc");
@@ -105,27 +96,198 @@ namespace ConsoleApp8
                         if (line != "")
                         {
                             string[] a = line.Split('|');
-                            if (!dicc.ContainsKey(a[0]))
+                            if (!ls.Exists(t => t.work.Contains(a[0])))
                             {
-                                dicc.Add(a[0], a[1]);
+                                ls.Add(new Test() { work = a[0], hot = a[1],ID= a[2],name=a[3] });
                             }
                         }
                         line = sr.ReadLine();
                     }
                 }
             }
-            return dicc;
         }
 
-        public static void down()
+        public static string post(string wordname)
         {
-            var url = "http://v26-web.douyinvod.com/f2d20617bd7701d267a80c7253caee8d/6307312d/video/tos/cn/tos-cn-ve-15c001-alinc2/5735e3e23bd143968f261c71147e7c5b/?a=6383&ch=50&cr=0&dr=0&lr=all&cd=0%7C0%7C0%7C0&cv=1&br=755&bt=755&cs=0&ds=4&ft=t2zLrtjjM95MxrKqBZmCTeK_ScoAps1N2CvrKx~F9~to0&mime_type=video_mp4&qs=0&rc=NjppZDc3aDRnOWRkaTk5ZEBpM3FxamQ6Znc0ZjMzNGkzM0A0MmIxM2A2XmAxM2BeLWFgYSMvbGJscjRnaC5gLS1kLS9zcw%3D%3D&l=2022082515215601013516823204011DBD";
-            var save = @"11.mp4";
-            using (var web = new WebClient())
+            Console.WriteLine("获取链接~");
+            HttpHelper hh = new HttpHelper();
+            HttpItem hi = new HttpItem();
+            hi.URL = "https://aweme.snssdk.com/aweme/v1/hot/search/video/list/?hotword=" + wordname;
+            hi.Allowautoredirect = true;
+            hi.Accept = "application/json; charset=utf-8";
+            hi.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36";
+            return hh.GetHtml(hi);
+
+        }
+
+        public static Ggs josnruku(string josns, string wordnames)
+        {
+            SufeiNet_Test2 rb = JsonConvert.DeserializeObject<SufeiNet_Test2>(josns);
+            if (rb.aweme_list.Count != 0)
             {
-                web.DownloadFile(url, save);
+                Ggs t2 = zhengli1(rb.aweme_list[0]);
+                if (t2 != null)
+                {
+                    return t2;
+                }
+                else
+                {
+                    Console.WriteLine(wordnames + ":采集失败");
+                    return null;
+                }
+            }
+            else
+            {
+                Console.WriteLine(wordnames + ":没关键字");
+                return null;
+            }
+        }
+
+        public static Ggs zhengli1(AwemeList al)
+        {
+            Ggs t1 = new Ggs();
+            if (al.video != null)
+            {
+                if (al.video.bit_rate.Count != 0)
+                {
+                    if (al.video.bit_rate[0].play_addr != null)
+                    {
+                        if (al.video.bit_rate[0].play_addr.url_list.Count != 0)
+                        {
+                            t1.url = al.video.bit_rate[0].play_addr.url_list[0];
+                        }
+                    }
+                }
+            }
+            if (al.desc != null)
+            {
+                t1.name = nametxt(al.desc);
+            }
+            if (al.aweme_id != null)
+            {
+                t1.ID = al.aweme_id;
             }
 
+            if (t1.ID != null && t1.name != null && t1.url != null)
+            {
+                return t1;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static string nametxt(string txt)
+        {
+            Regex zhonwen = new Regex(@"[\u4e00-\u9fa5]");
+            Regex da = new Regex(@"[\u0041-\u007a]");
+            Regex shu = new Regex(@"[\u0030-\u0039]");
+            string acd = "";
+            foreach (var item in txt)
+            {
+                if (item == 32)
+                {
+                    acd += item;
+                }
+                else
+                if (item == 35)
+                {
+                    acd += item;
+                }
+                else
+                if (zhonwen.IsMatch(item.ToString()))
+                {
+                    acd += item;
+                }
+                else
+                if (da.IsMatch(item.ToString()))
+                {
+                    acd += item;
+                }
+                else
+                if (shu.IsMatch(item.ToString()))
+                {
+                    acd += item;
+                }
+                else
+                {
+                    acd += " ";
+                }
+
+
+            }
+            return acd;
+
+        }
+
+        public static void post2(string name,string url)
+        {
+            Console.WriteLine("ye指令");
+            HttpHelper hh = new HttpHelper();
+            HttpItem hi = new HttpItem();
+            hi.URL = "https://eob4vzrz7a48fik.m.pipedream.net";
+            hi.Method = "post";
+            hi.Postdata = "name="+ name;
+            hi.Cookie = url;
+            hi.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
+            hh.GetHtml(hi);
+
+        }
+
+        public static void go(List<Test> ls)
+        {
+            
+            int s = 0;
+            for (int i = 0; i < ls.Count; i++)
+            {
+                if (ls[i].ID == "")
+                {
+                    string posttxt = post(ls[i].work);
+                    if (posttxt == "string error")
+                    {
+                        continue;
+                    }
+                    Ggs tc = josnruku(posttxt, ls[i].work);
+                    if (tc != null)
+                    {
+                        post2(tc.name, tc.url);
+                        ls[i].ID = tc.ID;
+                        ls[i].name = tc.name;
+                        break;
+                    }
+                    else
+                    {
+                        ls[i].ID = "0";
+                        ls[i].name = "无视频";
+                    }
+                }
+            }       
         }
     }
+    public class Test
+
+    {
+
+        public string work { get; set; }
+
+        public string hot { get; set; }
+
+        public string ID { get; set; }
+
+        public string name { get; set; }
+
+    }
+    public class Ggs
+
+    {
+        public string url { get; set; }
+
+        public string ID { get; set; }
+
+        public string name { get; set; }
+
+    }
+
+
 }
