@@ -336,6 +336,7 @@ namespace ConsoleApp8
                         }
                         else
                         {
+                            ls[i].ID = "0";
                             log("ID已发布");
                         }
 
