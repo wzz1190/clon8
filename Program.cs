@@ -290,7 +290,7 @@ namespace ConsoleApp8
             Console.WriteLine("ye指令");
             HttpHelper hh = new HttpHelper();
             HttpItem hi = new HttpItem();
-            hi.URL = "https://eob4vzrz7a48fik.m.pipedream.net";
+            hi.URL = uurl;
             hi.Method = "post";
             hi.Postdata = "name="+ name;
             hi.Cookie = url;
@@ -320,7 +320,7 @@ namespace ConsoleApp8
                         if (pan(tc.ID))
                         {
                             log("获取URL 成功");
-                         //   post2(tc.name, tc.url, uu.url3);
+                            post2(tc.name, tc.url, uu.url3);
                             ls[i].ID = "1";
                             xieid(tc.ID);
                             log("TUB成功！");
