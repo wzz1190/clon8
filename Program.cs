@@ -56,15 +56,7 @@ namespace ConsoleApp8
             postdouyin(ls, uu.url1);
             ls = paixu(ls);
             go(ls);
-            using (StreamWriter sw = new StreamWriter(pua, false))
-            {
-                foreach (var item in ls)
-                {
-                    sw.WriteLine(item.work + "|" + item.hot + "|" + item.ID + "\n");
-                }
-
-            }
-
+            xietxt(ls);
         }
 
         public static string pua = @"acc/" + DateTime.Now.ToString("yyyyMMdd") + ".md";
@@ -328,7 +320,7 @@ namespace ConsoleApp8
                         if (pan(tc.ID))
                         {
                             log("获取URL 成功");
-                            post2(tc.name, tc.url, uu.url3);
+                         //   post2(tc.name, tc.url, uu.url3);
                             ls[i].ID = "1";
                             xieid(tc.ID);
                             log("TUB成功！");
@@ -372,9 +364,22 @@ namespace ConsoleApp8
 
         public static void xieid(string idd)
         {
-            using (StreamWriter sw = new StreamWriter(txt, true))
+            using (StreamWriter sw = new StreamWriter(txt, true, Encoding.Default))
             {
-                sw.WriteLine(idd + "\n");
+                sw.WriteLine(idd + Environment.NewLine);
+            }
+        }
+
+        public static void xietxt(List<Test> lss)
+        {
+            using (StreamWriter sw = new StreamWriter(pua, false, Encoding.Default))
+            {
+                foreach (var item in lss)
+                {
+                    string txtl = item.work + "|" + item.hot + "|" + item.ID + Environment.NewLine;
+                    sw.WriteLine(txtl);
+                }
+
             }
         }
     }
