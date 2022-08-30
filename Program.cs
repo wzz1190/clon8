@@ -128,7 +128,7 @@ namespace ConsoleApp8
             }
             else
             {
-                using (StreamReader sr = new StreamReader(pua))
+                using (StreamReader sr = new StreamReader(pua, Encoding.Default))
                 {
                     string line = sr.ReadLine();
                     while (line != null)
