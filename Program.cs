@@ -377,7 +377,7 @@ namespace ConsoleApp8
                 foreach (var item in lss)
                 {
                     string txtl = item.work + "|" + item.hot + "|" + item.ID + Environment.NewLine;
-                    sw.WriteLine(txtl);
+                    sw.WriteLineAsync(txtl);
                 }
 
             }
