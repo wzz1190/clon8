@@ -366,7 +366,7 @@ namespace ConsoleApp8
         {
             using (StreamWriter sw = new StreamWriter(txt, true, Encoding.Default))
             {
-                sw.WriteLine(idd);
+                sw.WriteLine(idd + Environment.NewLine);
             }
         }
 
@@ -376,7 +376,7 @@ namespace ConsoleApp8
             {
                 foreach (var item in lss)
                 {
-                    string txtl = item.work + "|" + item.hot + "|" + item.ID;
+                    string txtl = item.work + "|" + item.hot + "|" + item.ID + Environment.NewLine;
                     sw.WriteLine(txtl);
                 }
 
