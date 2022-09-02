@@ -76,6 +76,7 @@ namespace ConsoleApp8
             HttpHelper hh = new HttpHelper();
             HttpItem hi = new HttpItem();
             hi.URL = url;
+            hi.IsToLower = false;
             string html = hh.GetHtml(hi);
             SufeiNet_Test rb = JsonConvert.DeserializeObject<SufeiNet_Test>(html);
             if (rb.Data != null)
