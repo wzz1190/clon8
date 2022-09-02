@@ -323,7 +323,7 @@ namespace ConsoleApp8
                             log(post2(tc.name, tc.url, uu.url3));
                             ls[i].ID = "1";
                             xieid(tc.ID);
-                            log("TUB成功！");
+                            log("TUB成功！"+ tc.ID+"----"+ tc.name);
                             break;
                         }
                         else
