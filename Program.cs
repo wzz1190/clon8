@@ -285,16 +285,15 @@ namespace ConsoleApp8
 
         }
 
-        public static string post2(string name,string url,string uurl)
+        public static string post2(string namec, string urlc, string workc, string uurl)
         {
             Console.WriteLine("ye指令");
             HttpHelper hh = new HttpHelper();
             HttpItem hi = new HttpItem();
             hi.URL = uurl;
             hi.Method = "post";
-            hi.Postdata = "name="+ name;
-            hi.Cookie = url;
-            hi.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
+            hi.Postdata = "{\"name\":\"" + namec + "\",\"url\":\"" + urlc + "\",\"work\":\"" + workc + "\" }";
+            hi.ContentType = "application/json";
             return hh.GetHtml(hi);
 
         }
@@ -320,7 +319,7 @@ namespace ConsoleApp8
                         if (pan(tc.ID, tc.name))
                         {
                             log("获取URL 成功");
-                            log(post2(tc.name, tc.url, uu.url3));
+                            log(post2(tc.name, tc.url, ls[i].work, uu.url3));
                             ls[i].ID = "1";
                             xieid(tc.ID);
                             log("TUB成功！"+ tc.ID+"----"+ tc.name);
