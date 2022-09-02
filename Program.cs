@@ -317,7 +317,7 @@ namespace ConsoleApp8
                     if (tc != null)
                     {
                        
-                        if (pan(tc.ID))
+                        if (pan(tc.ID, tc.name))
                         {
                             log("获取URL 成功");
                             post2(tc.name, tc.url, uu.url3);
@@ -345,7 +345,7 @@ namespace ConsoleApp8
             }       
         }
 
-        public static bool pan(string xx)
+        public static bool pan(string xx,string dx)
         {
             if (lstxt.Contains(xx))
             {
@@ -353,7 +353,7 @@ namespace ConsoleApp8
             }
             foreach (var item in lswork)
             {
-                if (xx.Contains(item))
+                if (dx.Contains(item))
                 {
                     return false;
                 }
