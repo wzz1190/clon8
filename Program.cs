@@ -320,7 +320,11 @@ namespace ConsoleApp8
                         if (pan(tc.ID, tc.name))
                         {
                             log("获取URL 成功");
-                            log(post2(tc.name, tc.url, ls[i].work, uu.url3));
+                            if (post2(tc.name, tc.url, ls[i].work, uu.url3).Contains("success"))
+                            {
+                                log("成功！");
+                            }
+                            
                             ls[i].ID = "1";
                             xieid(tc.ID);
                             log("TUB成功！"+ tc.ID+"----"+ tc.name);
