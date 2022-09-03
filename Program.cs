@@ -322,7 +322,7 @@ namespace ConsoleApp8
                             log("获取URL 成功");
                             if (post2(tc.name, tc.url, ls[i].work, uu.url3).Contains("success"))
                             {
-                                log(tc.ID + "----" + tc.name+"           成功！");
+                                log(tc.ID + "----" + tc.name+"           发布成功！");
                             }
                             
                             ls[i].ID = "1";
