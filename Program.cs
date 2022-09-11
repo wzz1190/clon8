@@ -15,6 +15,7 @@ namespace ConsoleApp8
 {
     class Program
     {
+        
 
 
         public static urlx uu = new urlx();
