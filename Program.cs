@@ -2,6 +2,7 @@
 using DotNet.Utilities;
 using Newtonsoft.Json;
 using SufeiNet;
+using SufeiNet2;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,27 +24,37 @@ namespace ConsoleApp8
 
         static void Main(string[] args)
         {
-            if (args.Length == 0)
+            //if (args.Length == 0)
+            //{
+            //    log("无密码");
+            //    return;
+            //}
+            //else
+            //{
+            //    string[] aa = args[0].Split('|');
+            //    if (aa.Length == 3)
+            //    {
+            //        uu.url1 = aa[0];
+            //        uu.url2 = aa[1];
+            //        uu.url3 = aa[2];
+            //        log("正确开始运行");
+            //    }
+            //    else
+            //    {
+            //        log("密码错误");
+            //        return;
+            //    }
+            //}
+            string aas = "https://aweme.snssdk.com/aweme/v1/hot/search/list/?detail_list=1|https://aweme.snssdk.com/aweme/v1/hot/search/video/list/?hotword=|https://eob4vzrz7a48fik.m.pipedream.net";
+                           string[] aa = aas.Split('|');
+            if (aa.Length == 3)
             {
-                log("无密码");
-                return;
+                uu.url1 = aa[0];
+                uu.url2 = aa[1];
+                uu.url3 = aa[2];
+                log("正确开始运行");
             }
-            else
-            {
-                string[] aa = args[0].Split('|');
-                if (aa.Length == 3)
-                {
-                    uu.url1 = aa[0];
-                    uu.url2 = aa[1];
-                    uu.url3 = aa[2];
-                    log("正确开始运行");
-                }
-                else
-                {
-                    log("密码错误");
-                    return;
-                }
-            }
+
             douyin();
         }
 
@@ -78,7 +89,7 @@ namespace ConsoleApp8
             hi.URL = url;
             hi.IsToLower = false;
             string html = hh.GetHtml(hi);
-            SufeiNet_Test rb = JsonConvert.DeserializeObject<SufeiNet_Test>(html);
+            SufeiNet.SufeiNet_Test rb = JsonConvert.DeserializeObject<SufeiNet.SufeiNet_Test>(html);
             if (rb.Data != null)
             {
                 if (rb.Data.WordList != null && rb.Data.WordList.Count > 0)
@@ -187,10 +198,11 @@ namespace ConsoleApp8
 
         public static Ggs josnruku(string josns, string wordnames)
         {
-            SufeiNet_Test2 rb = JsonConvert.DeserializeObject<SufeiNet_Test2>(josns);
-            if (rb.aweme_list.Count != 0)
+            SufeiNet_Test3 rb = JsonConvert.DeserializeObject<SufeiNet_Test3>(josns);
+            if (rb.AwemeList.Count != 0)
             {
-                Ggs t2 = zhengli1(rb.aweme_list[0]);
+                
+                Ggs t2 = zhengli1(rb.AwemeList[0]);
                 if (t2 != null)
                 {
                     return t2;
@@ -208,29 +220,33 @@ namespace ConsoleApp8
             }
         }
 
-        public static Ggs zhengli1(AwemeList al)
+        public static Ggs zhengli1(SufeiNet2.AwemeList al)
         {
             Ggs t1 = new Ggs();
-            if (al.video != null)
+            if (al.Video != null)
             {
-                if (al.video.bit_rate.Count != 0)
+                if (al.Video.BitRate.Count != 0)
                 {
-                    if (al.video.bit_rate[0].play_addr != null)
+                    if (al.Video.BitRate[0].PlayAddr != null)
                     {
-                        if (al.video.bit_rate[0].play_addr.url_list.Count != 0)
+                        if (al.Video.BitRate[0].PlayAddr.UrlList.Count != 0)
                         {
-                            t1.url = al.video.bit_rate[0].play_addr.url_list[0];
+                            t1.url = al.Video.BitRate[0].PlayAddr.UrlList[0];
                         }
                     }
                 }
             }
-            if (al.desc != null)
+            if (al.Author.Nickname!=null)
             {
-                t1.name = nametxt(al.desc);
+                t1.nickname = al.Author.Nickname;
             }
-            if (al.aweme_id != null)
+            if (al.Desc != null)
             {
-                t1.ID = al.aweme_id;
+                t1.name = nametxt(al.Desc);
+            }
+            if (al.AwemeId != null)
+            {
+                t1.ID = al.AwemeId;
             }
 
             if (t1.ID != null && t1.name != null && t1.url != null)
@@ -314,7 +330,7 @@ namespace ConsoleApp8
                         continue;
                     }
                     Ggs tc = josnruku(posttxt, ls[i].work);
-                    if (tc != null)
+                    if (tc != null && !tc.name.Contains("升级后可展示全部信息"))
                     {
                        
                         if (pan(tc.ID, tc.name))
@@ -348,7 +364,7 @@ namespace ConsoleApp8
             }       
         }
 
-        public static bool pan(string xx,string dx)
+        public static bool pan(string xx,string dx,string nick)
         {
             if (lstxt.Contains(xx))
             {
@@ -357,6 +373,11 @@ namespace ConsoleApp8
             foreach (var item in lswork)
             {
                 if (dx.Contains(item))
+                {
+                    return false;
+                }
+
+                if (nick.Contains(item))
                 {
                     return false;
                 }
@@ -407,6 +428,7 @@ namespace ConsoleApp8
 
         public string name { get; set; }
 
+        public string nickname { get; set; }
     }
 
     public class urlx

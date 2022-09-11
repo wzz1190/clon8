@@ -710,6 +710,7 @@ namespace SufeiNet
         public XiguaTask xigua_task { get; set; }
         public MixInfo mix_info { get; set; }
         public RelationLabel relation_label { get; set; }
+        public string nickname { get; set; }
     }
 
     public class Extraa
