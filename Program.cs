@@ -333,7 +333,7 @@ namespace ConsoleApp8
                     if (tc != null && !tc.name.Contains("升级后可展示全部信息"))
                     {
                        
-                        if (pan(tc.ID, tc.name))
+                        if (pan(tc.ID, tc.name,tc.nickname))
                         {
                             log("获取URL 成功");
                             if (post2(tc.name, tc.url, ls[i].work, uu.url3).Contains("success"))
