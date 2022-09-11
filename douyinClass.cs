@@ -204,8 +204,6 @@ namespace SufeiNet2
         [JsonProperty("is_ad_fake")]
         public bool IsAdFake { get; set; }
 
-        [JsonProperty("total_favorited")]
-        public int TotalFavorited { get; set; }
 
         [JsonProperty("type_label")]
         public object TypeLabel { get; set; }
@@ -589,7 +587,7 @@ namespace SufeiNet2
         public object PlatformSyncInfo { get; set; }
 
         [JsonProperty("room_id")]
-        public int RoomId { get; set; }
+        public string RoomId { get; set; }
 
         [JsonProperty("sync_to_toutiao")]
         public int SyncToToutiao { get; set; }
@@ -1080,220 +1078,7 @@ namespace SufeiNet2
         public string Uri { get; set; }
     }
 
-    public class Music
-    {
 
-        [JsonProperty("binded_challenge_id")]
-        public int BindedChallengeId { get; set; }
-
-        [JsonProperty("duration")]
-        public int Duration { get; set; }
-
-        [JsonProperty("prevent_download")]
-        public bool PreventDownload { get; set; }
-
-        [JsonProperty("title")]
-        public string Title { get; set; }
-
-        [JsonProperty("is_matched_metadata")]
-        public bool IsMatchedMetadata { get; set; }
-
-        [JsonProperty("redirect")]
-        public bool Redirect { get; set; }
-
-        [JsonProperty("avatar_medium")]
-        public AvatarMedium2 AvatarMedium { get; set; }
-
-        [JsonProperty("is_audio_url_with_cookie")]
-        public bool IsAudioUrlWithCookie { get; set; }
-
-        [JsonProperty("mid")]
-        public string Mid { get; set; }
-
-        [JsonProperty("play_url")]
-        public PlayUrl PlayUrl { get; set; }
-
-        [JsonProperty("preview_end_time")]
-        public int PreviewEndTime { get; set; }
-
-        [JsonProperty("artist_user_infos")]
-        public object ArtistUserInfos { get; set; }
-
-        [JsonProperty("pgc_music_type")]
-        public int PgcMusicType { get; set; }
-
-        [JsonProperty("prevent_item_download_status")]
-        public int PreventItemDownloadStatus { get; set; }
-
-        [JsonProperty("author_deleted")]
-        public bool AuthorDeleted { get; set; }
-
-        [JsonProperty("author_status")]
-        public int AuthorStatus { get; set; }
-
-        [JsonProperty("cover_thumb")]
-        public CoverThumb CoverThumb { get; set; }
-
-        [JsonProperty("musician_user_infos")]
-        public object MusicianUserInfos { get; set; }
-
-        [JsonProperty("shoot_duration")]
-        public int ShootDuration { get; set; }
-
-        [JsonProperty("unshelve_countries")]
-        public object UnshelveCountries { get; set; }
-
-        [JsonProperty("album")]
-        public string Album { get; set; }
-
-        [JsonProperty("author_position")]
-        public object AuthorPosition { get; set; }
-
-        [JsonProperty("can_background_play")]
-        public bool CanBackgroundPlay { get; set; }
-
-        [JsonProperty("is_original")]
-        public bool IsOriginal { get; set; }
-
-        [JsonProperty("offline_desc")]
-        public string OfflineDesc { get; set; }
-
-        [JsonProperty("owner_nickname")]
-        public string OwnerNickname { get; set; }
-
-        [JsonProperty("strong_beat_url")]
-        public StrongBeatUrl StrongBeatUrl { get; set; }
-
-        [JsonProperty("is_del_video")]
-        public bool IsDelVideo { get; set; }
-
-        [JsonProperty("tag_list")]
-        public object TagList { get; set; }
-
-        [JsonProperty("user_count")]
-        public int UserCount { get; set; }
-
-        [JsonProperty("id")]
-        public object Id { get; set; }
-
-        [JsonProperty("music_status")]
-        public int MusicStatus { get; set; }
-
-        [JsonProperty("mute_share")]
-        public bool MuteShare { get; set; }
-
-        [JsonProperty("start_time")]
-        public int StartTime { get; set; }
-
-        [JsonProperty("end_time")]
-        public int EndTime { get; set; }
-
-        [JsonProperty("is_video_self_see")]
-        public bool IsVideoSelfSee { get; set; }
-
-        [JsonProperty("source_platform")]
-        public int SourcePlatform { get; set; }
-
-        [JsonProperty("status")]
-        public int Status { get; set; }
-
-        [JsonProperty("extra")]
-        public string Extra { get; set; }
-
-        [JsonProperty("is_original_sound")]
-        public bool IsOriginalSound { get; set; }
-
-        [JsonProperty("lyric_short_position")]
-        public object LyricShortPosition { get; set; }
-
-        [JsonProperty("music_chart_ranks")]
-        public object MusicChartRanks { get; set; }
-
-        [JsonProperty("sec_uid")]
-        public string SecUid { get; set; }
-
-        [JsonProperty("video_duration")]
-        public int VideoDuration { get; set; }
-
-        [JsonProperty("owner_id")]
-        public string OwnerId { get; set; }
-
-        [JsonProperty("artists")]
-        public IList<object> Artists { get; set; }
-
-        [JsonProperty("audition_duration")]
-        public int AuditionDuration { get; set; }
-
-        [JsonProperty("author")]
-        public string Author { get; set; }
-
-        [JsonProperty("collect_stat")]
-        public int CollectStat { get; set; }
-
-        [JsonProperty("cover_medium")]
-        public CoverMedium CoverMedium { get; set; }
-
-        [JsonProperty("is_pgc")]
-        public bool IsPgc { get; set; }
-
-        [JsonProperty("owner_handle")]
-        public string OwnerHandle { get; set; }
-
-        [JsonProperty("search_impr")]
-        public SearchImpr3 SearchImpr { get; set; }
-
-        [JsonProperty("cover_hd")]
-        public CoverHd CoverHd { get; set; }
-
-        [JsonProperty("dmv_auto_show")]
-        public bool DmvAutoShow { get; set; }
-
-        [JsonProperty("dsp_status")]
-        public int DspStatus { get; set; }
-
-        [JsonProperty("external_song_info")]
-        public IList<object> ExternalSongInfo { get; set; }
-
-        [JsonProperty("position")]
-        public object Position { get; set; }
-
-        [JsonProperty("schema_url")]
-        public string SchemaUrl { get; set; }
-
-        [JsonProperty("avatar_large")]
-        public AvatarLarge AvatarLarge { get; set; }
-
-        [JsonProperty("cover_large")]
-        public CoverLarge CoverLarge { get; set; }
-
-        [JsonProperty("id_str")]
-        public string IdStr { get; set; }
-
-        [JsonProperty("is_commerce_music")]
-        public bool IsCommerceMusic { get; set; }
-
-        [JsonProperty("is_restricted")]
-        public bool IsRestricted { get; set; }
-
-        [JsonProperty("luna_info")]
-        public LunaInfo LunaInfo { get; set; }
-
-        [JsonProperty("preview_start_time")]
-        public int PreviewStartTime { get; set; }
-
-        [JsonProperty("avatar_thumb")]
-        public AvatarThumb2 AvatarThumb { get; set; }
-
-        [JsonProperty("reason_type")]
-        public int ReasonType { get; set; }
-    }
-
-    public class PhotoSearchEntrance
-    {
-
-        [JsonProperty("ecom_type")]
-        public int EcomType { get; set; }
-    }
 
     public class HotsearchInfo
     {
@@ -1308,9 +1093,6 @@ namespace SufeiNet2
         public string BizExtra { get; set; }
     }
 
-    public class PoiBiz
-    {
-    }
 
     public class HotList
     {
@@ -1427,24 +1209,6 @@ namespace SufeiNet2
         public int Width { get; set; }
     }
 
-    public class DownloadAddr
-    {
-
-        [JsonProperty("height")]
-        public int Height { get; set; }
-
-        [JsonProperty("uri")]
-        public string Uri { get; set; }
-
-        [JsonProperty("url_list")]
-        public IList<string> UrlList { get; set; }
-
-        [JsonProperty("width")]
-        public int Width { get; set; }
-
-        [JsonProperty("data_size")]
-        public int DataSize { get; set; }
-    }
 
     public class PlayAddrLowbr
     {
@@ -1589,8 +1353,7 @@ namespace SufeiNet2
         [JsonProperty("dynamic_cover")]
         public DynamicCover DynamicCover { get; set; }
 
-        [JsonProperty("download_addr")]
-        public DownloadAddr DownloadAddr { get; set; }
+
 
         [JsonProperty("has_watermark")]
         public bool HasWatermark { get; set; }
@@ -2193,11 +1956,7 @@ namespace SufeiNet2
         [JsonProperty("item_stitch")]
         public int ItemStitch { get; set; }
 
-        [JsonProperty("music")]
-        public Music Music { get; set; }
 
-        [JsonProperty("photo_search_entrance")]
-        public PhotoSearchEntrance PhotoSearchEntrance { get; set; }
 
         [JsonProperty("collect_stat")]
         public int CollectStat { get; set; }
@@ -2226,8 +1985,6 @@ namespace SufeiNet2
         [JsonProperty("nickname_position")]
         public object NicknamePosition { get; set; }
 
-        [JsonProperty("poi_biz")]
-        public PoiBiz PoiBiz { get; set; }
 
         [JsonProperty("promotions")]
         public IList<object> Promotions { get; set; }
@@ -2422,8 +2179,6 @@ namespace SufeiNet2
         [JsonProperty("status_code")]
         public int StatusCode { get; set; }
 
-        [JsonProperty("total")]
-        public int Total { get; set; }
     }
 
 }
