@@ -11,7 +11,7 @@ namespace SufeiNet2
     {
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
@@ -20,14 +20,14 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
     }
 
     public class Avatar168x168
     {
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
@@ -36,7 +36,7 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
     }
 
     public class CoverUrl
@@ -46,10 +46,10 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
@@ -59,7 +59,7 @@ namespace SufeiNet2
     {
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
@@ -68,7 +68,7 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
     }
 
     public class AvatarLarger
@@ -78,10 +78,10 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
@@ -91,7 +91,7 @@ namespace SufeiNet2
     {
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
@@ -100,14 +100,14 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
     }
 
     public class VideoIcon
     {
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
@@ -116,7 +116,7 @@ namespace SufeiNet2
         public IList<object> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
     }
 
     public class ShareQrcodeUrl
@@ -126,10 +126,10 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
@@ -190,13 +190,13 @@ namespace SufeiNet2
     {
 
         [JsonProperty("download_prompt_ts")]
-        public int DownloadPromptTs { get; set; }
+        public string DownloadPromptTs { get; set; }
 
         [JsonProperty("follower_request_status")]
-        public int FollowerRequestStatus { get; set; }
+        public string FollowerRequestStatus { get; set; }
 
         [JsonProperty("live_verify")]
-        public int LiveVerify { get; set; }
+        public string LiveVerify { get; set; }
 
         [JsonProperty("signature_extra")]
         public object SignatureExtra { get; set; }
@@ -209,7 +209,7 @@ namespace SufeiNet2
         public object TypeLabel { get; set; }
 
         [JsonProperty("gender")]
-        public int Gender { get; set; }
+        public string Gender { get; set; }
 
         [JsonProperty("has_youtube_token")]
         public bool HasYoutubeToken { get; set; }
@@ -218,7 +218,7 @@ namespace SufeiNet2
         public object HomepageBottomToast { get; set; }
 
         [JsonProperty("is_cf")]
-        public int IsCf { get; set; }
+        public string IsCf { get; set; }
 
         [JsonProperty("is_phone_binded")]
         public bool IsPhoneBinded { get; set; }
@@ -227,7 +227,7 @@ namespace SufeiNet2
         public string YoutubeChannelId { get; set; }
 
         [JsonProperty("aweme_count")]
-        public int AwemeCount { get; set; }
+        public string AwemeCount { get; set; }
 
         [JsonProperty("cha_list")]
         public object ChaList { get; set; }
@@ -239,7 +239,7 @@ namespace SufeiNet2
         public bool UserCanceled { get; set; }
 
         [JsonProperty("user_period")]
-        public int UserPeriod { get; set; }
+        public string UserPeriod { get; set; }
 
         [JsonProperty("live_commerce")]
         public bool LiveCommerce { get; set; }
@@ -251,10 +251,10 @@ namespace SufeiNet2
         public object AdCoverUrl { get; set; }
 
         [JsonProperty("commerce_user_level")]
-        public int CommerceUserLevel { get; set; }
+        public string CommerceUserLevel { get; set; }
 
         [JsonProperty("follow_status")]
-        public int FollowStatus { get; set; }
+        public string FollowStatus { get; set; }
 
         [JsonProperty("has_email")]
         public bool HasEmail { get; set; }
@@ -275,7 +275,7 @@ namespace SufeiNet2
         public Avatar300x300 Avatar300x300 { get; set; }
 
         [JsonProperty("contacts_status")]
-        public int ContactsStatus { get; set; }
+        public string ContactsStatus { get; set; }
 
         [JsonProperty("im_role_ids")]
         public object ImRoleIds { get; set; }
@@ -290,22 +290,22 @@ namespace SufeiNet2
         public string WeiboUrl { get; set; }
 
         [JsonProperty("favoriting_count")]
-        public int FavoritingCount { get; set; }
+        public string FavoritingCount { get; set; }
 
         [JsonProperty("follower_status")]
-        public int FollowerStatus { get; set; }
+        public string FollowerStatus { get; set; }
 
         [JsonProperty("tw_expire_time")]
-        public int TwExpireTime { get; set; }
+        public string TwExpireTime { get; set; }
 
         [JsonProperty("with_commerce_entry")]
         public bool WithCommerceEntry { get; set; }
 
         [JsonProperty("shield_digg_notice")]
-        public int ShieldDiggNotice { get; set; }
+        public string ShieldDiggNotice { get; set; }
 
         [JsonProperty("shield_follow_notice")]
-        public int ShieldFollowNotice { get; set; }
+        public string ShieldFollowNotice { get; set; }
 
         [JsonProperty("card_entries")]
         public object CardEntries { get; set; }
@@ -323,13 +323,13 @@ namespace SufeiNet2
         public string Location { get; set; }
 
         [JsonProperty("school_category")]
-        public int SchoolCategory { get; set; }
+        public string SchoolCategory { get; set; }
 
         [JsonProperty("twitter_name")]
         public string TwitterName { get; set; }
 
         [JsonProperty("constellation")]
-        public int Constellation { get; set; }
+        public string Constellation { get; set; }
 
         [JsonProperty("display_info")]
         public object DisplayInfo { get; set; }
@@ -362,16 +362,16 @@ namespace SufeiNet2
         public string Birthday { get; set; }
 
         [JsonProperty("download_setting")]
-        public int DownloadSetting { get; set; }
+        public string DownloadSetting { get; set; }
 
         [JsonProperty("short_id")]
         public string ShortId { get; set; }
 
         [JsonProperty("comment_setting")]
-        public int CommentSetting { get; set; }
+        public string CommentSetting { get; set; }
 
         [JsonProperty("create_time")]
-        public int CreateTime { get; set; }
+        public string CreateTime { get; set; }
 
         [JsonProperty("is_gov_media_vip")]
         public bool IsGovMediaVip { get; set; }
@@ -383,19 +383,19 @@ namespace SufeiNet2
         public object RelativeUsers { get; set; }
 
         [JsonProperty("secret")]
-        public int Secret { get; set; }
+        public string Secret { get; set; }
 
         [JsonProperty("link_item_list")]
         public object LinkItemList { get; set; }
 
         [JsonProperty("shield_comment_notice")]
-        public int ShieldCommentNotice { get; set; }
+        public string ShieldCommentNotice { get; set; }
 
         [JsonProperty("is_verified")]
         public bool IsVerified { get; set; }
 
         [JsonProperty("need_recommend")]
-        public int NeedRecommend { get; set; }
+        public string NeedRecommend { get; set; }
 
         [JsonProperty("nickname")]
         public string Nickname { get; set; }
@@ -404,7 +404,7 @@ namespace SufeiNet2
         public string Region { get; set; }
 
         [JsonProperty("user_age")]
-        public int UserAge { get; set; }
+        public string UserAge { get; set; }
 
         [JsonProperty("cover_url")]
         public IList<CoverUrl> CoverUrl { get; set; }
@@ -431,7 +431,7 @@ namespace SufeiNet2
         public string EnterpriseVerifyReason { get; set; }
 
         [JsonProperty("reflow_page_gid")]
-        public int ReflowPageGid { get; set; }
+        public string ReflowPageGid { get; set; }
 
         [JsonProperty("google_account")]
         public string GoogleAccount { get; set; }
@@ -449,16 +449,16 @@ namespace SufeiNet2
         public string ShareQrcodeUri { get; set; }
 
         [JsonProperty("verification_type")]
-        public int VerificationType { get; set; }
+        public string VerificationType { get; set; }
 
         [JsonProperty("video_icon")]
         public VideoIcon VideoIcon { get; set; }
 
         [JsonProperty("youtube_expire_time")]
-        public int YoutubeExpireTime { get; set; }
+        public string YoutubeExpireTime { get; set; }
 
         [JsonProperty("live_status")]
-        public int LiveStatus { get; set; }
+        public string LiveStatus { get; set; }
 
         [JsonProperty("not_seen_item_id_list")]
         public object NotSeenItemIdList { get; set; }
@@ -467,7 +467,7 @@ namespace SufeiNet2
         public object OfflineInfoList { get; set; }
 
         [JsonProperty("special_lock")]
-        public int SpecialLock { get; set; }
+        public string SpecialLock { get; set; }
 
         [JsonProperty("user_permissions")]
         public object UserPermissions { get; set; }
@@ -491,22 +491,22 @@ namespace SufeiNet2
         public object WhiteCoverUrl { get; set; }
 
         [JsonProperty("live_agreement_time")]
-        public int LiveAgreementTime { get; set; }
+        public string LiveAgreementTime { get; set; }
 
         [JsonProperty("prevent_download")]
         public bool PreventDownload { get; set; }
 
         [JsonProperty("react_setting")]
-        public int ReactSetting { get; set; }
+        public string ReactSetting { get; set; }
 
         [JsonProperty("story_count")]
-        public int StoryCount { get; set; }
+        public string StoryCount { get; set; }
 
         [JsonProperty("user_mode")]
-        public int UserMode { get; set; }
+        public string UserMode { get; set; }
 
         [JsonProperty("apple_account")]
-        public int AppleAccount { get; set; }
+        public string AppleAccount { get; set; }
 
         [JsonProperty("avatar_uri")]
         public string AvatarUri { get; set; }
@@ -521,28 +521,26 @@ namespace SufeiNet2
         public string SecUid { get; set; }
 
         [JsonProperty("signature_display_lines")]
-        public int SignatureDisplayLines { get; set; }
+        public string SignatureDisplayLines { get; set; }
 
         [JsonProperty("follower_count")]
-        public int FollowerCount { get; set; }
+        public string FollowerCount { get; set; }
 
         [JsonProperty("has_insights")]
         public bool HasInsights { get; set; }
 
-        [JsonProperty("ky_only_predict")]
-        public int KyOnlyPredict { get; set; }
 
         [JsonProperty("max_follower_count")]
-        public int MaxFollowerCount { get; set; }
+        public string MaxFollowerCount { get; set; }
 
         [JsonProperty("user_not_show")]
-        public int UserNotShow { get; set; }
+        public string UserNotShow { get; set; }
 
         [JsonProperty("stitch_setting")]
-        public int StitchSetting { get; set; }
+        public string StitchSetting { get; set; }
 
         [JsonProperty("user_rate")]
-        public int UserRate { get; set; }
+        public string UserRate { get; set; }
 
         [JsonProperty("ins_id")]
         public string InsId { get; set; }
@@ -557,10 +555,10 @@ namespace SufeiNet2
         public object ItemList { get; set; }
 
         [JsonProperty("neiguang_shield")]
-        public int NeiguangShield { get; set; }
+        public string NeiguangShield { get; set; }
 
         [JsonProperty("school_type")]
-        public int SchoolType { get; set; }
+        public string SchoolType { get; set; }
 
         [JsonProperty("school_name")]
         public string SchoolName { get; set; }
@@ -569,7 +567,7 @@ namespace SufeiNet2
         public string WeiboName { get; set; }
 
         [JsonProperty("duet_setting")]
-        public int DuetSetting { get; set; }
+        public string DuetSetting { get; set; }
 
         [JsonProperty("geofencing")]
         public IList<object> Geofencing { get; set; }
@@ -581,7 +579,7 @@ namespace SufeiNet2
         public string Language { get; set; }
 
         [JsonProperty("live_agreement")]
-        public int LiveAgreement { get; set; }
+        public string LiveAgreement { get; set; }
 
         [JsonProperty("platform_sync_info")]
         public object PlatformSyncInfo { get; set; }
@@ -590,31 +588,31 @@ namespace SufeiNet2
         public string RoomId { get; set; }
 
         [JsonProperty("sync_to_toutiao")]
-        public int SyncToToutiao { get; set; }
+        public string SyncToToutiao { get; set; }
 
         [JsonProperty("aweme_control")]
         public AwemeControl AwemeControl { get; set; }
 
         [JsonProperty("comment_filter_status")]
-        public int CommentFilterStatus { get; set; }
+        public string CommentFilterStatus { get; set; }
 
         [JsonProperty("has_orders")]
         public bool HasOrders { get; set; }
 
         [JsonProperty("user_not_see")]
-        public int UserNotSee { get; set; }
+        public string UserNotSee { get; set; }
 
         [JsonProperty("authority_status")]
-        public int AuthorityStatus { get; set; }
+        public string AuthorityStatus { get; set; }
 
         [JsonProperty("aweme_hotsoon_auth")]
-        public int AwemeHotsoonAuth { get; set; }
+        public string AwemeHotsoonAuth { get; set; }
 
         [JsonProperty("fb_expire_time")]
-        public int FbExpireTime { get; set; }
+        public string FbExpireTime { get; set; }
 
         [JsonProperty("unique_id_modify_time")]
-        public int UniqueIdModifyTime { get; set; }
+        public string UniqueIdModifyTime { get; set; }
 
         [JsonProperty("with_shop_entry")]
         public bool WithShopEntry { get; set; }
@@ -623,7 +621,7 @@ namespace SufeiNet2
         public object CanSetGeofencing { get; set; }
 
         [JsonProperty("following_count")]
-        public int FollowingCount { get; set; }
+        public string FollowingCount { get; set; }
 
         [JsonProperty("signature")]
         public string Signature { get; set; }
@@ -641,13 +639,13 @@ namespace SufeiNet2
         public object CardSortPriority { get; set; }
 
         [JsonProperty("close_friend_type")]
-        public int CloseFriendType { get; set; }
+        public string CloseFriendType { get; set; }
 
         [JsonProperty("search_impr")]
         public SearchImpr SearchImpr { get; set; }
 
         [JsonProperty("status")]
-        public int Status { get; set; }
+        public string Status { get; set; }
 
         [JsonProperty("hide_search")]
         public bool HideSearch { get; set; }
@@ -659,7 +657,7 @@ namespace SufeiNet2
         public object PersonalTagList { get; set; }
 
         [JsonProperty("reflow_page_uid")]
-        public int ReflowPageUid { get; set; }
+        public string ReflowPageUid { get; set; }
 
         [JsonProperty("twitter_id")]
         public string TwitterId { get; set; }
@@ -684,7 +682,7 @@ namespace SufeiNet2
         public bool DuetIgnoreVisibility { get; set; }
 
         [JsonProperty("share_type")]
-        public int ShareType { get; set; }
+        public string ShareType { get; set; }
 
         [JsonProperty("allow_douplus")]
         public bool AllowDouplus { get; set; }
@@ -702,19 +700,19 @@ namespace SufeiNet2
         public bool AllowStitch { get; set; }
 
         [JsonProperty("prevent_download_type")]
-        public int PreventDownloadType { get; set; }
+        public string PreventDownloadType { get; set; }
 
         [JsonProperty("download_ignore_visibility")]
         public bool DownloadIgnoreVisibility { get; set; }
 
         [JsonProperty("draft_progress_bar")]
-        public int DraftProgressBar { get; set; }
+        public string DraftProgressBar { get; set; }
 
         [JsonProperty("show_progress_bar")]
-        public int ShowProgressBar { get; set; }
+        public string ShowProgressBar { get; set; }
 
         [JsonProperty("timer_status")]
-        public int TimerStatus { get; set; }
+        public string TimerStatus { get; set; }
 
         [JsonProperty("share_grayed")]
         public bool ShareGrayed { get; set; }
@@ -737,14 +735,14 @@ namespace SufeiNet2
     {
 
         [JsonProperty("review_status")]
-        public int ReviewStatus { get; set; }
+        public string ReviewStatus { get; set; }
     }
 
     public class AwemeEditInfo
     {
 
         [JsonProperty("button_status")]
-        public int ButtonStatus { get; set; }
+        public string ButtonStatus { get; set; }
 
         [JsonProperty("button_toast")]
         public string ButtonToast { get; set; }
@@ -760,16 +758,16 @@ namespace SufeiNet2
         public string AwemeId { get; set; }
 
         [JsonProperty("download_status")]
-        public int DownloadStatus { get; set; }
+        public string DownloadStatus { get; set; }
 
         [JsonProperty("review_result")]
         public ReviewResult ReviewResult { get; set; }
 
         [JsonProperty("dont_share_status")]
-        public int DontShareStatus { get; set; }
+        public string DontShareStatus { get; set; }
 
         [JsonProperty("reviewed")]
-        public int Reviewed { get; set; }
+        public string Reviewed { get; set; }
 
         [JsonProperty("self_see")]
         public bool SelfSee { get; set; }
@@ -787,10 +785,10 @@ namespace SufeiNet2
         public bool IsPrivate { get; set; }
 
         [JsonProperty("listen_video_status")]
-        public int ListenVideoStatus { get; set; }
+        public string ListenVideoStatus { get; set; }
 
         [JsonProperty("video_hide_search")]
-        public int VideoHideSearch { get; set; }
+        public string VideoHideSearch { get; set; }
 
         [JsonProperty("with_goods")]
         public bool WithGoods { get; set; }
@@ -802,10 +800,10 @@ namespace SufeiNet2
         public bool IsProhibited { get; set; }
 
         [JsonProperty("part_see")]
-        public int PartSee { get; set; }
+        public string PartSee { get; set; }
 
         [JsonProperty("private_status")]
-        public int PrivateStatus { get; set; }
+        public string PrivateStatus { get; set; }
 
         [JsonProperty("with_fusion_goods")]
         public bool WithFusionGoods { get; set; }
@@ -830,7 +828,7 @@ namespace SufeiNet2
         public string ShareTitleOther { get; set; }
 
         [JsonProperty("bool_persist")]
-        public int BoolPersist { get; set; }
+        public string BoolPersist { get; set; }
 
         [JsonProperty("share_desc")]
         public string ShareDesc { get; set; }
@@ -855,26 +853,26 @@ namespace SufeiNet2
     {
 
         [JsonProperty("tag_id")]
-        public int TagId { get; set; }
+        public string TagId { get; set; }
 
         [JsonProperty("tag_name")]
         public string TagName { get; set; }
 
         [JsonProperty("level")]
-        public int Level { get; set; }
+        public string Level { get; set; }
     }
 
     public class ImageAlbumMusicInfo
     {
 
         [JsonProperty("volume")]
-        public int Volume { get; set; }
+        public string Volume { get; set; }
 
         [JsonProperty("begin_time")]
-        public int BeginTime { get; set; }
+        public string BeginTime { get; set; }
 
         [JsonProperty("end_time")]
-        public int EndTime { get; set; }
+        public string EndTime { get; set; }
     }
 
     public class ImpressionData
@@ -914,14 +912,14 @@ namespace SufeiNet2
         public string Extra { get; set; }
 
         [JsonProperty("item_patch_poi_prompt_mark")]
-        public int ItemPatchPoiPromptMark { get; set; }
+        public string ItemPatchPoiPromptMark { get; set; }
     }
 
     public class AvatarMedium2
     {
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
@@ -930,14 +928,14 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
     }
 
     public class PlayUrl
     {
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
@@ -949,14 +947,14 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
     }
 
     public class CoverThumb
     {
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
@@ -965,14 +963,14 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
     }
 
     public class StrongBeatUrl
     {
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
@@ -981,7 +979,7 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
     }
 
     public class CoverMedium
@@ -994,10 +992,10 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
     }
 
     public class SearchImpr3
@@ -1014,10 +1012,10 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
@@ -1027,7 +1025,7 @@ namespace SufeiNet2
     {
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
@@ -1036,14 +1034,14 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
     }
 
     public class CoverLarge
     {
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
@@ -1052,7 +1050,7 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
     }
 
     public class LunaInfo
@@ -1069,10 +1067,10 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
@@ -1101,7 +1099,7 @@ namespace SufeiNet2
         public string Extra { get; set; }
 
         [JsonProperty("pattern_type")]
-        public int PatternType { get; set; }
+        public string PatternType { get; set; }
 
         [JsonProperty("schema")]
         public string Schema { get; set; }
@@ -1116,22 +1114,22 @@ namespace SufeiNet2
         public string GroupId { get; set; }
 
         [JsonProperty("hot_score")]
-        public int HotScore { get; set; }
+        public string HotScore { get; set; }
 
         [JsonProperty("title")]
         public string Title { get; set; }
 
         [JsonProperty("rank")]
-        public int Rank { get; set; }
+        public string Rank { get; set; }
 
         [JsonProperty("sentence_id")]
-        public int SentenceId { get; set; }
+        public string SentenceId { get; set; }
 
         [JsonProperty("type")]
-        public int Type { get; set; }
+        public string Type { get; set; }
 
         [JsonProperty("view_count")]
-        public int ViewCount { get; set; }
+        public string ViewCount { get; set; }
 
         [JsonProperty("header")]
         public string Header { get; set; }
@@ -1143,7 +1141,7 @@ namespace SufeiNet2
         public string ImageUrl { get; set; }
 
         [JsonProperty("label")]
-        public int Label { get; set; }
+        public string Label { get; set; }
     }
 
     public class RiskInfos
@@ -1162,7 +1160,7 @@ namespace SufeiNet2
         public bool RiskSink { get; set; }
 
         [JsonProperty("type")]
-        public int Type { get; set; }
+        public string Type { get; set; }
     }
 
     public class PlayAddr
@@ -1178,10 +1176,10 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
 
         [JsonProperty("data_size")]
-        public int DataSize { get; set; }
+        public string DataSize { get; set; }
 
         [JsonProperty("file_cs")]
         public string FileCs { get; set; }
@@ -1190,14 +1188,14 @@ namespace SufeiNet2
         public string FileHash { get; set; }
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
     }
 
     public class DynamicCover
     {
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
@@ -1206,7 +1204,7 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
     }
 
 
@@ -1220,10 +1218,10 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
 
         [JsonProperty("data_size")]
-        public int DataSize { get; set; }
+        public string DataSize { get; set; }
 
         [JsonProperty("file_cs")]
         public string FileCs { get; set; }
@@ -1232,7 +1230,7 @@ namespace SufeiNet2
         public string FileHash { get; set; }
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
@@ -1242,7 +1240,7 @@ namespace SufeiNet2
     {
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
@@ -1251,14 +1249,14 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
     }
 
     public class OriginCover
     {
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
@@ -1267,14 +1265,14 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
     }
 
     public class PlayAddr2
     {
 
         [JsonProperty("data_size")]
-        public int DataSize { get; set; }
+        public string DataSize { get; set; }
 
         [JsonProperty("file_cs")]
         public string FileCs { get; set; }
@@ -1283,7 +1281,7 @@ namespace SufeiNet2
         public string FileHash { get; set; }
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
@@ -1295,20 +1293,20 @@ namespace SufeiNet2
         public IList<string> UrlList { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
     }
 
     public class BitRate
     {
 
         [JsonProperty("is_bytevc1")]
-        public int IsBytevc1 { get; set; }
+        public string IsBytevc1 { get; set; }
 
         [JsonProperty("play_addr")]
         public PlayAddr2 PlayAddr { get; set; }
 
         [JsonProperty("FPS")]
-        public int FPS { get; set; }
+        public string FPS { get; set; }
 
         [JsonProperty("HDR_bit")]
         public string HDRBit { get; set; }
@@ -1317,23 +1315,23 @@ namespace SufeiNet2
         public string GearName { get; set; }
 
         [JsonProperty("quality_type")]
-        public int QualityType { get; set; }
+        public string QualityType { get; set; }
 
         [JsonProperty("HDR_type")]
         public string HDRType { get; set; }
 
         [JsonProperty("bit_rate")]
-        public int BitRates { get; set; }
+        public string BitRates { get; set; }
 
         [JsonProperty("is_h265")]
-        public int IsH265 { get; set; }
+        public string IsH265 { get; set; }
     }
 
     public class Video
     {
 
         [JsonProperty("is_source_HDR")]
-        public int IsSourceHDR { get; set; }
+        public string IsSourceHDR { get; set; }
 
         [JsonProperty("meta")]
         public string Meta { get; set; }
@@ -1348,7 +1346,7 @@ namespace SufeiNet2
         public bool UseStaticCover { get; set; }
 
         [JsonProperty("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
 
         [JsonProperty("dynamic_cover")]
         public DynamicCover DynamicCover { get; set; }
@@ -1359,10 +1357,10 @@ namespace SufeiNet2
         public bool HasWatermark { get; set; }
 
         [JsonProperty("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         [JsonProperty("is_bytevc1")]
-        public int IsBytevc1 { get; set; }
+        public string IsBytevc1 { get; set; }
 
         [JsonProperty("misc_download_addrs")]
         public string MiscDownloadAddrs { get; set; }
@@ -1377,7 +1375,7 @@ namespace SufeiNet2
         public object BigThumbs { get; set; }
 
         [JsonProperty("duration")]
-        public int Duration { get; set; }
+        public string Duration { get; set; }
 
         [JsonProperty("is_callback")]
         public bool IsCallback { get; set; }
@@ -1389,10 +1387,10 @@ namespace SufeiNet2
         public Cover Cover { get; set; }
 
         [JsonProperty("cdn_url_expired")]
-        public int CdnUrlExpired { get; set; }
+        public string CdnUrlExpired { get; set; }
 
         [JsonProperty("is_h265")]
-        public int IsH265 { get; set; }
+        public string IsH265 { get; set; }
 
         [JsonProperty("origin_cover")]
         public OriginCover OriginCover { get; set; }
@@ -1401,7 +1399,7 @@ namespace SufeiNet2
         public IList<BitRate> BitRate { get; set; }
 
         [JsonProperty("is_long_video")]
-        public int? IsLongVideo { get; set; }
+        public string? IsLongVideo { get; set; }
 
         [JsonProperty("video_model")]
         public string VideoModel { get; set; }
@@ -1424,7 +1422,7 @@ namespace SufeiNet2
         public bool CanComment { get; set; }
 
         [JsonProperty("comment_permission_status")]
-        public int CommentPermissionStatus { get; set; }
+        public string CommentPermissionStatus { get; set; }
 
         [JsonProperty("item_detail_entry")]
         public bool ItemDetailEntry { get; set; }
@@ -1460,13 +1458,13 @@ namespace SufeiNet2
         public bool IsCommerce { get; set; }
 
         [JsonProperty("start")]
-        public int Start { get; set; }
+        public string Start { get; set; }
 
         [JsonProperty("type")]
-        public int Type { get; set; }
+        public string Type { get; set; }
 
         [JsonProperty("end")]
-        public int End { get; set; }
+        public string End { get; set; }
 
         [JsonProperty("hashtag_id")]
         public string HashtagId { get; set; }
@@ -1479,7 +1477,7 @@ namespace SufeiNet2
     {
 
         [JsonProperty("can_bomb")]
-        public int CanBomb { get; set; }
+        public string CanBomb { get; set; }
 
         [JsonProperty("lottie_id")]
         public string LottieId { get; set; }
@@ -1489,10 +1487,10 @@ namespace SufeiNet2
     {
 
         [JsonProperty("item_price")]
-        public int ItemPrice { get; set; }
+        public string ItemPrice { get; set; }
 
         [JsonProperty("series_paid_status")]
-        public int SeriesPaidStatus { get; set; }
+        public string SeriesPaidStatus { get; set; }
     }
 
     public class ShareInfo3
@@ -1514,7 +1512,7 @@ namespace SufeiNet2
         public string ShareWeiboDesc { get; set; }
 
         [JsonProperty("bool_persist")]
-        public int BoolPersist { get; set; }
+        public string BoolPersist { get; set; }
 
         [JsonProperty("share_desc")]
         public string ShareDesc { get; set; }
@@ -1647,13 +1645,13 @@ namespace SufeiNet2
         public object ShowItems { get; set; }
 
         [JsonProperty("type")]
-        public int Type { get; set; }
+        public string Type { get; set; }
 
         [JsonProperty("user_count")]
-        public int UserCount { get; set; }
+        public string UserCount { get; set; }
 
         [JsonProperty("view_count")]
-        public int ViewCount { get; set; }
+        public string ViewCount { get; set; }
 
         [JsonProperty("connect_music")]
         public IList<object> ConnectMusic { get; set; }
@@ -1677,7 +1675,7 @@ namespace SufeiNet2
         public bool IsCommerce { get; set; }
 
         [JsonProperty("sub_type")]
-        public int SubType { get; set; }
+        public string SubType { get; set; }
 
         [JsonProperty("extra_attr")]
         public ExtraAttr ExtraAttr { get; set; }
@@ -1689,13 +1687,13 @@ namespace SufeiNet2
         public string Cid { get; set; }
 
         [JsonProperty("collect_stat")]
-        public int CollectStat { get; set; }
+        public string CollectStat { get; set; }
 
         [JsonProperty("desc")]
         public string Desc { get; set; }
 
         [JsonProperty("is_challenge")]
-        public int IsChallenge { get; set; }
+        public string IsChallenge { get; set; }
 
         [JsonProperty("search_impr")]
         public SearchImpr4 SearchImpr { get; set; }
@@ -1708,46 +1706,46 @@ namespace SufeiNet2
     {
 
         [JsonProperty("collect_count")]
-        public int CollectCount { get; set; }
+        public string CollectCount { get; set; }
 
         [JsonProperty("lose_count")]
-        public int LoseCount { get; set; }
+        public string LoseCount { get; set; }
 
         [JsonProperty("play_count")]
-        public int PlayCount { get; set; }
+        public string PlayCount { get; set; }
 
         [JsonProperty("share_count")]
-        public int ShareCount { get; set; }
+        public string ShareCount { get; set; }
 
         [JsonProperty("download_count")]
-        public int DownloadCount { get; set; }
+        public string DownloadCount { get; set; }
 
         [JsonProperty("whatsapp_share_count")]
-        public int WhatsappShareCount { get; set; }
+        public string WhatsappShareCount { get; set; }
 
         [JsonProperty("digest")]
         public string Digest { get; set; }
 
         [JsonProperty("live_watch_count")]
-        public int LiveWatchCount { get; set; }
+        public string LiveWatchCount { get; set; }
 
         [JsonProperty("forward_count")]
-        public int ForwardCount { get; set; }
+        public string ForwardCount { get; set; }
 
         [JsonProperty("lose_comment_count")]
-        public int LoseCommentCount { get; set; }
+        public string LoseCommentCount { get; set; }
 
         [JsonProperty("aweme_id")]
         public string AwemeId { get; set; }
 
         [JsonProperty("comment_count")]
-        public int CommentCount { get; set; }
+        public string CommentCount { get; set; }
 
         [JsonProperty("digg_count")]
-        public int DiggCount { get; set; }
+        public string DiggCount { get; set; }
 
         [JsonProperty("exposure_count")]
-        public int ExposureCount { get; set; }
+        public string ExposureCount { get; set; }
     }
 
     public class RelationLabel
@@ -1757,10 +1755,10 @@ namespace SufeiNet2
         public string LabelInfo { get; set; }
 
         [JsonProperty("show_type")]
-        public int ShowType { get; set; }
+        public string ShowType { get; set; }
 
         [JsonProperty("type")]
-        public int Type { get; set; }
+        public string Type { get; set; }
     }
 
     public class FakeHorizontalInfo
@@ -1773,10 +1771,10 @@ namespace SufeiNet2
         public double Bottom { get; set; }
 
         [JsonProperty("left")]
-        public int Left { get; set; }
+        public string Left { get; set; }
 
         [JsonProperty("right")]
-        public int Right { get; set; }
+        public string Right { get; set; }
     }
 
     public class AwemeList
@@ -1789,7 +1787,7 @@ namespace SufeiNet2
         public object ImageInfos { get; set; }
 
         [JsonProperty("rate")]
-        public int Rate { get; set; }
+        public string Rate { get; set; }
 
         [JsonProperty("relation_labels")]
         public object RelationLabels { get; set; }
@@ -1804,10 +1802,10 @@ namespace SufeiNet2
         public bool IsKaraoke { get; set; }
 
         [JsonProperty("is_top")]
-        public int IsTop { get; set; }
+        public string IsTop { get; set; }
 
         [JsonProperty("item_share")]
-        public int ItemShare { get; set; }
+        public string ItemShare { get; set; }
 
         [JsonProperty("standard_bar_info_list")]
         public object StandardBarInfoList { get; set; }
@@ -1825,19 +1823,19 @@ namespace SufeiNet2
         public bool WithoutWatermark { get; set; }
 
         [JsonProperty("item_react")]
-        public int ItemReact { get; set; }
+        public string ItemReact { get; set; }
 
         [JsonProperty("video_labels")]
         public object VideoLabels { get; set; }
 
         [JsonProperty("is_collects_selected")]
-        public int IsCollectsSelected { get; set; }
+        public string IsCollectsSelected { get; set; }
 
         [JsonProperty("is_pgcshow")]
         public bool IsPgcshow { get; set; }
 
         [JsonProperty("item_comment_settings")]
-        public int ItemCommentSettings { get; set; }
+        public string ItemCommentSettings { get; set; }
 
         [JsonProperty("label_top_text")]
         public object LabelTopText { get; set; }
@@ -1849,7 +1847,7 @@ namespace SufeiNet2
         public VideoControl VideoControl { get; set; }
 
         [JsonProperty("distribute_type")]
-        public int DistributeType { get; set; }
+        public string DistributeType { get; set; }
 
         [JsonProperty("has_vs_entry")]
         public bool HasVsEntry { get; set; }
@@ -1861,7 +1859,7 @@ namespace SufeiNet2
         public object InteractionStickers { get; set; }
 
         [JsonProperty("is_story")]
-        public int IsStory { get; set; }
+        public string IsStory { get; set; }
 
         [JsonProperty("descendants")]
         public Descendants Descendants { get; set; }
@@ -1921,7 +1919,7 @@ namespace SufeiNet2
         public ImpressionData ImpressionData { get; set; }
 
         [JsonProperty("is_preview")]
-        public int IsPreview { get; set; }
+        public string IsPreview { get; set; }
 
         [JsonProperty("sort_label")]
         public string SortLabel { get; set; }
@@ -1930,7 +1928,7 @@ namespace SufeiNet2
         public bool IsLifeItem { get; set; }
 
         [JsonProperty("nearby_level")]
-        public int NearbyLevel { get; set; }
+        public string NearbyLevel { get; set; }
 
         [JsonProperty("is_first_video")]
         public bool IsFirstVideo { get; set; }
@@ -1942,10 +1940,10 @@ namespace SufeiNet2
         public ShowFollowButton ShowFollowButton { get; set; }
 
         [JsonProperty("vr_type")]
-        public int VrType { get; set; }
+        public string VrType { get; set; }
 
         [JsonProperty("guide_btn_type")]
-        public int GuideBtnType { get; set; }
+        public string GuideBtnType { get; set; }
 
         [JsonProperty("search_impr")]
         public SearchImpr2 SearchImpr { get; set; }
@@ -1954,12 +1952,12 @@ namespace SufeiNet2
         public PoiPatchInfo PoiPatchInfo { get; set; }
 
         [JsonProperty("item_stitch")]
-        public int ItemStitch { get; set; }
+        public string ItemStitch { get; set; }
 
 
 
         [JsonProperty("collect_stat")]
-        public int CollectStat { get; set; }
+        public string CollectStat { get; set; }
 
         [JsonProperty("cover_labels")]
         public object CoverLabels { get; set; }
@@ -1974,13 +1972,13 @@ namespace SufeiNet2
         public bool IsDuetSing { get; set; }
 
         [JsonProperty("aweme_type")]
-        public int AwemeType { get; set; }
+        public string AwemeType { get; set; }
 
         [JsonProperty("have_dashboard")]
         public bool HaveDashboard { get; set; }
 
         [JsonProperty("story_ttl")]
-        public int StoryTtl { get; set; }
+        public string StoryTtl { get; set; }
 
         [JsonProperty("nickname_position")]
         public object NicknamePosition { get; set; }
@@ -2011,7 +2009,7 @@ namespace SufeiNet2
         public object DislikeDimensionList { get; set; }
 
         [JsonProperty("is_hash_tag")]
-        public int IsHashTag { get; set; }
+        public string IsHashTag { get; set; }
 
         [JsonProperty("is_vr")]
         public bool IsVr { get; set; }
@@ -2020,7 +2018,7 @@ namespace SufeiNet2
         public RiskInfos RiskInfos { get; set; }
 
         [JsonProperty("bodydance_score")]
-        public int BodydanceScore { get; set; }
+        public string BodydanceScore { get; set; }
 
         [JsonProperty("anchors")]
         public object Anchors { get; set; }
@@ -2056,7 +2054,7 @@ namespace SufeiNet2
         public object GeofencingRegions { get; set; }
 
         [JsonProperty("create_time")]
-        public int CreateTime { get; set; }
+        public string CreateTime { get; set; }
 
         [JsonProperty("is_image_beat")]
         public bool IsImageBeat { get; set; }
@@ -2068,7 +2066,7 @@ namespace SufeiNet2
         public IList<TextExtra> TextExtra { get; set; }
 
         [JsonProperty("user_digged")]
-        public int UserDigged { get; set; }
+        public string UserDigged { get; set; }
 
         [JsonProperty("aweme_id")]
         public string AwemeId { get; set; }
@@ -2080,13 +2078,13 @@ namespace SufeiNet2
         public SeriesPaidInfo SeriesPaidInfo { get; set; }
 
         [JsonProperty("duration")]
-        public int Duration { get; set; }
+        public string Duration { get; set; }
 
         [JsonProperty("group_id")]
         public string GroupId { get; set; }
 
         [JsonProperty("item_duet")]
-        public int ItemDuet { get; set; }
+        public string ItemDuet { get; set; }
 
         [JsonProperty("misc_info")]
         public string MiscInfo { get; set; }
@@ -2150,7 +2148,7 @@ namespace SufeiNet2
         public HotspotBottomBarInfo HotspotBottomBarInfo { get; set; }
 
         [JsonProperty("has_more")]
-        public int HasMore { get; set; }
+        public string HasMore { get; set; }
 
         [JsonProperty("hidden_video_info")]
         public string HiddenVideoInfo { get; set; }
@@ -2165,19 +2163,19 @@ namespace SufeiNet2
         public object WordInfo { get; set; }
 
         [JsonProperty("cursor")]
-        public int Cursor { get; set; }
+        public string Cursor { get; set; }
 
         [JsonProperty("extra")]
         public Extra Extra { get; set; }
 
         [JsonProperty("hotspot_feed_bottom_bar_type")]
-        public int HotspotFeedBottomBarType { get; set; }
+        public string HotspotFeedBottomBarType { get; set; }
 
         [JsonProperty("micro_article_list")]
         public IList<object> MicroArticleList { get; set; }
 
         [JsonProperty("status_code")]
-        public int StatusCode { get; set; }
+        public string StatusCode { get; set; }
 
     }
 
