@@ -24,35 +24,26 @@ namespace ConsoleApp8
 
         static void Main(string[] args)
         {
-            //if (args.Length == 0)
-            //{
-            //    log("无密码");
-            //    return;
-            //}
-            //else
-            //{
-            //    string[] aa = args[0].Split('|');
-            //    if (aa.Length == 3)
-            //    {
-            //        uu.url1 = aa[0];
-            //        uu.url2 = aa[1];
-            //        uu.url3 = aa[2];
-            //        log("正确开始运行");
-            //    }
-            //    else
-            //    {
-            //        log("密码错误");
-            //        return;
-            //    }
-            //}
-            string aas = "https://aweme.snssdk.com/aweme/v1/hot/search/list/?detail_list=1|https://aweme.snssdk.com/aweme/v1/hot/search/video/list/?hotword=|https://eob4vzrz7a48fik.m.pipedream.net";
-                           string[] aa = aas.Split('|');
-            if (aa.Length == 3)
+            if (args.Length == 0)
             {
-                uu.url1 = aa[0];
-                uu.url2 = aa[1];
-                uu.url3 = aa[2];
-                log("正确开始运行");
+                log("无密码");
+                return;
+            }
+            else
+            {
+                string[] aa = args[0].Split('|');
+                if (aa.Length == 3)
+                {
+                    uu.url1 = aa[0];
+                    uu.url2 = aa[1];
+                    uu.url3 = aa[2];
+                    log("正确开始运行");
+                }
+                else
+                {
+                    log("密码错误");
+                    return;
+                }
             }
 
             douyin();
