@@ -1399,7 +1399,7 @@ namespace SufeiNet2
         public IList<BitRate> BitRate { get; set; }
 
         [JsonProperty("is_long_video")]
-        public string? IsLongVideo { get; set; }
+        public string IsLongVideo { get; set; }
 
         [JsonProperty("video_model")]
         public string VideoModel { get; set; }
