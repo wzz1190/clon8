@@ -190,7 +190,7 @@ namespace ConsoleApp8
         public static Ggs josnruku(string josns, string wordnames)
         {
             SufeiNet2.SufeiNet_Test3 rb = JsonConvert.DeserializeObject<SufeiNet2.SufeiNet_Test3>(josns);
-            if (rb.AwemeList.Count >= 1)
+            if (rb.AwemeList.Count >= 2)
             {
                 
                 Ggs t2 = zhengli1(rb.AwemeList[1]);
